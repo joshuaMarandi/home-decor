@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+
+.product-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.product-image-container {
+  width: 100%;
+  max-width: 500px; /* You can adjust this value based on your layout */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+}

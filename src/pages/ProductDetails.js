@@ -1,20 +1,25 @@
-import { useParams } from "react-router-dom";
+import React from 'react';
+import { useParams } from 'react-router-dom';
 
-const products = [
-  { id: 1, name: "Elegant Vase", price: "$25", description: "A beautiful vase for your home.", image: "/images/cake8.jpg" },
-  { id: 2, name: "Luxury Lamp", price: "$40", description: "A stylish lamp to light up your room.", image: "/images/ai2.jpg" },
-];
+// Import the products data again in ProductDetails.js
+import products from '../data/products';
 
 const ProductDetails = () => {
-  const { id } = useParams();
-  const product = products.find((p) => p.id === parseInt(id));
+  const { id } = useParams();  // This grabs the product id from the URL
+
+  // Find the product by ID
+  const product = products.find((prod) => prod.id === parseInt(id));
+
+  if (!product) {
+    return <p>Product not found</p>;
+  }
 
   return (
-    <div className="p-10">
-      <img src={product.image} alt={product.name} className="w-60 h-60 object-cover" />
-      <h2 className="text-2xl font-bold">{product.name}</h2>
-      <p className="text-lg">{product.description}</p>
-      <p className="text-gray-600">{product.price}</p>
+    <div className="product-details p-10">
+      <h1 className="text-3xl font-bold">{product.name}</h1>
+      <img src={product.image} alt={product.name} className="w-full h-80 object-cover mt-4 rounded-md" />
+      {/* <p className="text-xl mt-4">{product.name}...</p> */}
+      <p className="text-lg mt-4">Price: $68</p>
     </div>
   );
 };
