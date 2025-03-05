@@ -7,6 +7,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart"; // Import Cart Page
 import { CartProvider } from "./contexts/CartContext"; // Import Cart Context
 
+
 function App() {
   return (
     <CartProvider>
@@ -17,8 +18,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} /> {/* New Cart Route */}
-          </Routes>
+            <Route path="/cart" element={<Cart />} /> {/* Add Cart page */}
+            </Routes>
         </div>
       </Router>
     </CartProvider>

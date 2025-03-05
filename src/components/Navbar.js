@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import './Navbar.css'; // Make sure the path to the CSS file is correct
+import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Use Link for navigation
+import { useCart } from "../contexts/CartContext"; // Import Cart context
+import "./Navbar.css"; // Make sure the path to the CSS file is correct
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { getCartCount } = useCart(); // Get cart count
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -15,20 +18,26 @@ function Navbar() {
         <h1 className="navbar-logo">Home Decor Shop</h1>
 
         {/* Navbar Links */}
-        <div className={`nav-links-container ${isMenuOpen ? 'active' : ''}`}>
+        <div className={`nav-links-container ${isMenuOpen ? "active" : ""}`}>
           <ul className="nav-links">
-            <li><a href="/" className="nav-link">Home</a></li>
-            <li><a href="/products" className="nav-link">Products</a></li>
-            <li><a href="/about" className="nav-link">About</a></li>
-            <li><a href="/contact" className="nav-link">Contact</a></li>
+            <li><Link to="/" className="nav-link">Home</Link></li>
+            <li><Link to="/products" className="nav-link">Products</Link></li>
+            <li><Link to="/about" className="nav-link">About</Link></li>
+            <li><Link to="/contact" className="nav-link">Contact</Link></li>
             <li className="nav-link">
               <div className="dropdown">
                 <span className="dropdown-toggle">More</span>
                 <div className="dropdown-menu">
-                  <a href="/blog" className="dropdown-item">Blog</a>
-                  <a href="/services" className="dropdown-item">Services</a>
+                  <Link to="/blog" className="dropdown-item">Blog</Link>
+                  <Link to="/services" className="dropdown-item">Services</Link>
                 </div>
               </div>
+            </li>
+            {/* Cart Icon */}
+            <li className="nav-link">
+              <Link to="/cart" className="cart-link">
+                🛒 Cart ({getCartCount()})
+              </Link>
             </li>
           </ul>
         </div>
@@ -38,18 +47,6 @@ function Navbar() {
           <span className="hamburger-icon"></span>
         </div>
       </div>
-    </nav>
-  );
-  
-  const { cart } = useCart(); // Access cart
-
-  return (
-    <nav className="bg-blue-500 text-white p-4 flex justify-between">
-      <Link to="/" className="text-lg font-bold">Home</Link>
-      <Link to="/products" className="text-lg">Products</Link>
-      <Link to="/cart" className="text-lg">
-        Cart ({cart.length}) 🛒
-      </Link>
     </nav>
   );
 }
