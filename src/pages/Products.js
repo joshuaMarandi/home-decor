@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext"; // Import the cart context
 
 
 
@@ -49,32 +50,46 @@ const products = [
     { id: 20, name: "Wall Art 2", image: img20 },
 ];
 
-  const Products = () => {
+const Products = () => {
+  const { addToCart } = useCart(); // Access addToCart function from context
+
+  const handleAddToCart = (product) => {
+    addToCart(product); // Add selected product to cart
+  };
+
   return (
     <div className="p-10">
       <h2 className="text-3xl font-bold text-center mb-6">Our Products</h2>
-      
-      {/* Filter Buttons */}
       <div className="flex justify-center gap-4 mb-6">
         <button className="px-4 py-2 bg-blue-500 text-white rounded">All</button>
         <button className="px-4 py-2 bg-green-500 text-white rounded">Furniture</button>
         <button className="px-4 py-2 bg-yellow-500 text-white rounded">Lighting</button>
         <button className="px-4 py-2 bg-red-500 text-white rounded">Decor</button>
       </div>
-
-
-      {/* Product Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {products.map((product) => (
           <div key={product.id} className="border p-4 rounded-lg shadow-lg bg-white">
-            <img src={product.image} alt={product.name} className="w-full h-40 object-cover rounded-md" />
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-40 object-cover rounded-md"
+            />
             <h3 className="text-lg mt-2 font-semibold">{product.name}</h3>
-            <p className="text-gray-600">{product.price}</p>
-            <Link to={`/products/${product.id}`}>
-              <button className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
-                View Details
+            <p className="text-gray-600">{product.description}</p>
+            <p className="text-gray-800 font-semibold">${product.price}</p>
+            <div className="flex justify-between mt-2">
+              <Link to={`/products/${product.id}`}>
+                <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
+                  View Details
+                </button>
+              </Link>
+              <button
+                onClick={() => handleAddToCart(product)}
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+              >
+                Add to Cart
               </button>
-            </Link>
+            </div>
           </div>
         ))}
       </div>

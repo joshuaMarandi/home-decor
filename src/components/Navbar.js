@@ -40,6 +40,18 @@ function Navbar() {
       </div>
     </nav>
   );
+  
+  const { cart } = useCart(); // Access cart
+
+  return (
+    <nav className="bg-blue-500 text-white p-4 flex justify-between">
+      <Link to="/" className="text-lg font-bold">Home</Link>
+      <Link to="/products" className="text-lg">Products</Link>
+      <Link to="/cart" className="text-lg">
+        Cart ({cart.length}) 🛒
+      </Link>
+    </nav>
+  );
 }
 
 export default Navbar;

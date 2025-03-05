@@ -37,23 +37,95 @@
   }
 }
 
-
-.product-details-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Product Container */
+.product-container {
   padding: 20px;
 }
 
-.product-image-container {
-  width: 100%;
-  max-width: 500px; /* You can adjust this value based on your layout */
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Creates responsive columns */
+  gap: 20px;
+  margin-top: 20px;
 }
 
+/* Product Card */
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Adds hover effect */
+}
+
+/* Product Image */
 .product-image {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Product Name */
+.product-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Product Description */
+.product-description {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Product Price */
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #218838;
+}
+
+/* View Details Button */
+.view-details-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.view-details-btn:hover {
+  background-color: #0056b3;
 }
