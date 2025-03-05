@@ -4,26 +4,26 @@ import { Link } from "react-router-dom";
 
 
 // Import images correctly
-import img1 from "../assets/1.jpg";
-import img2 from "../assets/2.jpg";
-import img3 from "../assets/3.jpg";
-import img4 from "../assets/9.jpg";
-import img5 from "../assets/11.jpg";
-import img6 from "../assets/77.jpg";
-import img7 from "../assets/7.jpg";
-import img8 from "../assets/44.jpg";
-import img9 from "../assets/55.jpg";
-import img10 from "../assets/5.jpg";
-import img11 from "../assets/66.jpg";
-import img12 from "../assets/99.jpg";
-import img13 from "../assets/8.jpg";
-import img14 from "../assets/6.jpg";
-import img15 from "../assets/22.jpg";
-import img16 from "../assets/33.jpg";
-import img17 from "../assets/111.jpg";
-import img18 from "../assets/112.jpg";
-import img19 from "../assets/113.jpg";
-import img20 from "../assets/888.jpg";
+import img1 from "../images/1.jpg";
+import img2 from "../images/2.jpg";
+import img3 from "../images/3.jpg";
+import img4 from "../images/9.jpg";
+import img5 from "../images/11.jpg";
+import img6 from "../images/77.jpg";
+import img7 from "../images/7.jpg";
+import img8 from "../images/44.jpg";
+import img9 from "../images/55.jpg";
+import img10 from "../images/5.jpg";
+import img11 from "../images/66.jpg";
+import img12 from "../images/99.jpg";
+import img13 from "../images/8.jpg";
+import img14 from "../images/6.jpg";
+import img15 from "../images/22.jpg";
+import img16 from "../images/33.jpg";
+import img17 from "../images/111.jpg";
+import img18 from "../images/112.jpg";
+import img19 from "../images/113.jpg";
+import img20 from "../images/888.jpg";
 
 // Define products array with imported images
 const products = [ 
